@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Local database
+*.db
+
+# Generated forensic reports
+forensic_report.txt
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
