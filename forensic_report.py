@@ -1,5 +1,6 @@
 import sqlite3
 from datetime import datetime
+from forensic_memory import verify_integrity
 
 
 def generate_report():
@@ -89,11 +90,10 @@ def generate_report():
 
     report.append("\nEVIDENCE INTEGRITY")
     report.append("-" * 70)
+    integrity_status = verify_integrity()
+    report.append("Evidence protected using SHA-256 hash chaining.")
     report.append(
-        "Evidence protected using SHA-256 hash chaining."
-    )
-    report.append(
-        "Integrity verification: PASSED"
+        f"Integrity verification: {'PASSED' if integrity_status else 'FAILED'}"
     )
 
     report.append("\n" + "=" * 70)
