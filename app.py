@@ -5,6 +5,7 @@ import subprocess
 
 from forensic_memory import verify_integrity
 from forensic_report import generate_report
+from incident_detector import detect_incident
 
 # ==========================================
 # AUTONOMOUS FORENSIC MEMORY FOR PACS
@@ -90,12 +91,9 @@ network_events = len(
 )
 
 
-incident_detected = (
-    failed_logins >= 3
-    and dicom_events > 0
-    and database_events > 0
-    and network_events > 0
-)
+incident_detected = detect_incident()
+
+
 
 
 # ==========================================
