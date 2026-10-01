@@ -182,6 +182,12 @@ def verify_integrity():
         }
 
         stored_hash = event[7]
+        stored_previous_hash = event[8]
+        if stored_previous_hash != previous_hash:
+            print(
+                f"WARNING: Evidence {event_id} has an invalid previous hash!"
+            )
+            return False
 
         calculated_hash = calculate_hash(
             event_data,
